@@ -12,6 +12,14 @@ export const showDataHome_SumMachine =
   ON t.trainingEquipment_category = c.category_id
   GROUP BY trainingEquipment_category`;
 
+export const countStatusMachine =
+    `
+    SELECT 
+trainingEquipment_status,
+COUNT(trainingEquipment_status) as countStatus
+FROM training_equipmemnt
+GROUP BY trainingEquipment_status
+    `
 
 export const showDataEachMachine = (cate_id) => {
   return `
