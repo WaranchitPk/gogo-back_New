@@ -12,6 +12,17 @@ const PORT = process.env.PORT || 3000;
 
 app.use(compress());
 
+
+app.get('/hello',(req,res) =>{
+    res.send({
+        data: 'aaa'
+    })
+})
+app.get('/hello/1',(req,res) =>{
+    res.send({
+        data: 'aaa123'
+    })
+})
 // const con = mysql.createConnection({
 //     host: 'gogymfinal.mysql.database.azure.com',
 //     user: 'panGogym@gogymfinal',
