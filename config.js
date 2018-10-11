@@ -5,5 +5,6 @@ export const dbOptions = {
     user: process.env.db_User,
     password: process.env.db_Pass,
     port: process.env.db_Port,
-    database: process.env.db_Name
+    database: process.env.db_Name,
+    ssl: true
 };

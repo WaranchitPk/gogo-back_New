@@ -22,6 +22,7 @@ export const deleteEmp = (id) => {
   return `DELETE FROM employee WHERE employee_id = ${id}`
 };
 
+export const maxId = `SELECT MAX(employee_id) emp_id FROM employee`
 
 export const ShowUser =
   `SELECT user_id,user_fName,user_lName,user_gender,user_age,user_tel,training_status 

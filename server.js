@@ -12,7 +12,20 @@ const PORT = 9999;
 
 app.use(compress());
 
-
+// const con = mysql.createConnection({
+//     host: 'gogymfinal.mysql.database.azure.com',
+//     user: 'panGogym@gogymfinal',
+//     password: 'gotoDev39',
+//     database: 'gogym',
+//     ssl: true
+// })
+// con.connect((err) =>{
+//     if (err) {
+//         console.log(err)
+//     } else{
+//         console.log("Connected Successful")
+//     }
+// })
 
 app.use(cors());
 app.use(bodyParser.json());
