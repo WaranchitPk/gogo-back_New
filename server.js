@@ -8,7 +8,7 @@ import {MainRoute} from './app';
 import {dbOptions} from './config';
 import moment from 'moment';
 const app = express();
-const PORT = 9999;
+const PORT = process.env.PORT || 3000;
 
 app.use(compress());
 
