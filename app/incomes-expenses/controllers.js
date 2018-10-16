@@ -14,15 +14,28 @@ const IncomeController = {
     },
     createDataIncome(req, res) {
         const {body} = req;
-        const bodyDataIncome = {
+	if(body.userType === 1){
+	     const bodyDataIncome = {
             incomes_name: body.IncomeName,
             incomes_details: body.IncomeDetail,
             incomes_amount: body.IncomeAmount,
             incomes_date: moment(body.IncomeDate).format("YYYY-MM-DD"),
             incomes_cateId: body.IncomeCate,
-            created_by: 10000
+            created_by: body.userId
+        };
+		Model.createDataIncome(req, res, bodyDataIncome);	
+	}else if(body.userType === 2){
+	const bodyDataIncome = {
+            incomes_name: body.IncomeName,
+            incomes_details: body.IncomeDetail,
+            incomes_amount: body.IncomeAmount,
+            incomes_date: moment(body.IncomeDate).format("YYYY-MM-DD"),
+            incomes_cateId: body.IncomeCate,
+            created_by_emp: body.userId
         };
         Model.createDataIncome(req, res, bodyDataIncome);
+	}
+ 
     },
     findDataIncomeTrends(req,res){
         const {year} = req.params;

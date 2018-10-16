@@ -17,7 +17,6 @@ const ExerciseDiaryController = {
     const { body } = req;
     let bodyData = {};
     if (body.userType === 2) {
-
       bodyData = {
         exDiary_date: body.date,
         exDiary_details: body.details,
@@ -26,8 +25,10 @@ const ExerciseDiaryController = {
         created_by: body.created_by,
         user_id: body.userId,
         created_by_name: body.by_name
-      };
+      };	
+	Model.createData(req,res,bodyData)
     } else if (body.userType === 3) {
+
       bodyData = {
         exDiary_date: body.date,
         exDiary_details: body.details,
@@ -36,9 +37,10 @@ const ExerciseDiaryController = {
         user_id: body.userId,
         created_by_name: body.by_name
       };
+Model.createData(req,res,bodyData)
     }
-    Model.createData(req, res, bodyData)
-
+   // Model.createData(req, res, bodyData)
+   
   },
   updateStatus(req, res) {
     const { body } = req;

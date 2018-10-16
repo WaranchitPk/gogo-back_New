@@ -38,7 +38,7 @@ WHERE training_user.emp_id = ${id}`
 
 export const findChooseUserExerciseDiary = (id) => {
   return `SELECT exDiary_id,exDiary_date,exDiary_details,exDiary_status,exDiary_recomend 
-FROM exerciseDiary
+FROM exercisediary
 WHERE user_id = ${id}`
 }
 export const findNameEmployee = () => {

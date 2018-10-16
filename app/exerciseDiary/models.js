@@ -41,7 +41,7 @@ const ExerciseDiaryModel = {
   createData(req, res, body) {
     req.getConnection((err, connection) => {
       if (err) return err;
-      connection.query('INSERT INTO exerciseDiary SET ?', body, (err, result) => {
+      connection.query('INSERT INTO exercisediary SET ?', body, (err, result) => {
         if (err) return err;
         res.status(201).json({
           result
@@ -53,7 +53,7 @@ const ExerciseDiaryModel = {
   updateData(req, res, body, id) {
     req.getConnection((err, connection) => {
       if (err) return err;
-      connection.query('UPDATE exerciseDiary SET ? WHERE exDiary_id = ?', [body, id], (err, result) => {
+      connection.query('UPDATE exercisediary SET ? WHERE exDiary_id = ?', [body, id], (err, result) => {
         if (err) return err;
         res.status(201).json({
           result
@@ -65,7 +65,7 @@ const ExerciseDiaryModel = {
   updateAllData(req, res, body, id) {
     req.getConnection((err, connection) => {
       if (err) return err;
-      connection.query('UPDATE exerciseDiary SET ? WHERE exDiary_id = ?', [body, id], (err, result) => {
+      connection.query('UPDATE exercisediary SET ? WHERE exDiary_id = ?', [body, id], (err, result) => {
         if (err) return err;
         res.status(201).json({
           result
