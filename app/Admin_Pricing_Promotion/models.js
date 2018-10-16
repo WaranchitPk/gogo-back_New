@@ -24,7 +24,7 @@ const PricingPromotionModel = {
   findPromotion(req,res){
     req.getConnection((err,connection) =>{
       if (err) return err;
-      connection.query('SELECT promotion_Date, promotion_Desc FROM Promotion',(err,result) =>{
+      connection.query('SELECT promotion_Date, promotion_Desc FROM promotion',(err,result) =>{
         if (err) return err;
         res.status(200).json({
           result
