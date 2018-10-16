@@ -1,6 +1,6 @@
 export const showDataHome = `SELECT t.trainingEquipment_id,t.trainingEquipment_name,t.trainingEquipment_status,c.category_name,t.trainingEquipment_dateForBuy,t.trainingEquipment_price,created_by_name 
 FROM training_equipmemnt AS t 
-INNER JOIN trainingEquipment_Categories AS c
+INNER JOIN trainingequipment_categories AS c
 ON t.trainingEquipment_category = c.category_id`;
 
 export const showDataHome_SumMachine =
@@ -8,7 +8,7 @@ export const showDataHome_SumMachine =
 	  c.category_name,
     Count(t.trainingEquipment_id) AS countMachine
   FROM training_equipmemnt AS t
-  INNER JOIN trainingEquipment_Categories AS c
+  INNER JOIN trainingequipment_categories AS c
   ON t.trainingEquipment_category = c.category_id
   GROUP BY trainingEquipment_category`;
 
