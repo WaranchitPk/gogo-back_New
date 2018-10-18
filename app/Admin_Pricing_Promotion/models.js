@@ -35,7 +35,7 @@ const PricingPromotionModel = {
   updatePromotion(req,res,body,id){
     req.getConnection((err,connection) =>{
       if (err) return err;
-      connection.query('UPDATE Promotion SET ? WHERE promotion_id = ?',[body,id],(err,result) =>{
+      connection.query('UPDATE promotion SET ? WHERE promotion_id = ?',[body,id],(err,result) =>{
         if (err) return err;
         res.status(201).json({
           result
