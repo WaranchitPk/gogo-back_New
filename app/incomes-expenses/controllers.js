@@ -17,15 +17,15 @@ const IncomeController = {
 	if(body.userType === 1){
 	     const bodyDataIncome = {
             incomes_name: body.IncomeName,
-            incomes_details: body.IncomeDetail,
-            incomes_amount: body.IncomeAmount,
-            incomes_date: moment(body.IncomeDate).format("YYYY-MM-DD"),
-            incomes_cateId: body.IncomeCate,
-            created_by: body.userId
-        };
-		Model.createDataIncome(req, res, bodyDataIncome);	
-	}else if(body.userType === 2){
-	const bodyDataIncome = {
+             incomes_details: body.IncomeDetail,
+             incomes_amount: body.IncomeAmount,
+             incomes_date: moment(body.IncomeDate).format("YYYY-MM-DD"),
+             incomes_cateId: body.IncomeCate,
+             created_by: body.userId
+         };
+        Model.createDataIncome(req, res, bodyDataIncome);
+    } else if (body.userType === 2) {
+        const bodyDataIncome = {
             incomes_name: body.IncomeName,
             incomes_details: body.IncomeDetail,
             incomes_amount: body.IncomeAmount,
@@ -34,8 +34,8 @@ const IncomeController = {
             created_by_emp: body.userId
         };
         Model.createDataIncome(req, res, bodyDataIncome);
-	}
- 
+    }
+
     },
     findDataIncomeTrends(req,res){
         const {year} = req.params;
@@ -50,15 +50,31 @@ const IncomeController = {
     },
     createDataExpenses(req, res) {
         const {body} = req;
-        const bodyDataIncome = {
-            expenses_names: body.ExpensesName,
-            expenses_details: body.ExpensesDetail,
-            expenses_amount: body.ExpensesAmount,
-            expenses_date: moment(body.ExpensesDate).format("YYYY-MM-DD"),
-            expenses_cate: body.ExpensesCate,
-            created_by: 10000
-        };
-        Model.createDataExpenses(req, res, bodyDataIncome);
+        // userType: this.props.token.userType,
+        //     userId: this.props.token.userId
+        if(body.userType === 1){
+            const bodyDataExpenses = {
+                expenses_names: body.ExpensesName,
+                expenses_details: body.ExpensesDetail,
+                expenses_amount: body.ExpensesAmount,
+                expenses_date: moment(body.ExpensesDate).format("YYYY-MM-DD"),
+                expenses_cate: body.ExpensesCate,
+                created_by: body.userId
+            };
+
+            Model.createDataExpenses(req, res, bodyDataExpenses);
+        } else if (body.userType === 2) {
+            const bodyDataExpenses = {
+                expenses_names: body.ExpensesName,
+                expenses_details: body.ExpensesDetail,
+                expenses_amount: body.ExpensesAmount,
+                expenses_date: moment(body.ExpensesDate).format("YYYY-MM-DD"),
+                expenses_cate: body.ExpensesCate,
+                created_by_emp: body.userId
+            };
+
+            Model.createDataExpenses(req, res, bodyDataExpenses);
+        }
     },
     loadYearExpenses(req, res) {
         Model.loadYearExpenses(req, res);

@@ -6,7 +6,8 @@ import {
     findDekNaiSangkud,
     findChooseUserExerciseDiary,
     findNameEmployee,
-    maxId
+    maxId,
+    ShowAllUser
 } from './queryStr';
 
 const EmployeeModel = {
@@ -81,6 +82,17 @@ const EmployeeModel = {
         req.getConnection((err, connection) => {
             if (err) return err;
             connection.query(ShowUser, (err, result) => {
+                if (err) return err;
+                res.status(200).json({
+                    result
+                })
+            })
+        })
+    },
+    showUserAll(req,res){
+        req.getConnection((err, connection) => {
+            if (err) return err;
+            connection.query(ShowAllUser, (err, result) => {
                 if (err) return err;
                 res.status(200).json({
                     result

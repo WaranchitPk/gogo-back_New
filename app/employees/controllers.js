@@ -59,6 +59,9 @@ const EmployeeController = {
     showAllUser(req, res) {
         Model.showUser(req, res)
     },
+    showAllUserActiveAndActive(req,res){
+        Model.showUserAll(req,res)
+    },
     InsertUser(req, res) {
         const {body} = req;
 

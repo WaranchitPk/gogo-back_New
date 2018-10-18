@@ -28,6 +28,9 @@ export const ShowUser =
   `SELECT user_id,user_fName,user_lName,user_gender,user_age,user_tel,training_status 
   FROM users 
   WHERE user_id NOT IN (1) AND training_status = "0"`;
+export const ShowAllUser =
+    `SELECT user_id,user_fName,user_lName,user_gender,user_age,user_tel,training_status 
+  FROM users `
 
 export const findDekNaiSangkud = (id) => {
   return `SELECT users.user_id,users.user_fName,users.user_lName,users.user_gender,users.user_age,users.user_tel 
